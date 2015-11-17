@@ -1,5 +1,9 @@
 // Fonctions pour embedder la librarie PythonKoyo en c++
 
+#ifndef commKoyo_H
+#define commKoyo_H
+
+
 PyObject* koyoReadIn()
 {
 	PyObject *pName, *pModule, *pDict, *pFunc, *pFunc2, *pValue;
@@ -25,3 +29,5 @@ PyObject* koyoReadOut()
 
 	return pResult;
 }
+
+#endif // commKoyo_H
