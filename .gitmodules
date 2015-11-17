@@ -1,0 +1,6 @@
+[submodule "lib/.git"]
+	path = lib/.git
+	url = https://github.com/SimplyAutomationized/PythonKoyo
+[submodule "libkoyo"]
+	path = libkoyo
+	url = https://github.com/SimplyAutomationized/PythonKoyo
