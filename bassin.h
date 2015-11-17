@@ -1,5 +1,8 @@
 // Classe pour le traitement des I/O pour la lecture du niveau des bassins
 
+#ifndef BASSIN_H
+#define BASSIN_H
+
 #define VITESSE_SON_mmus	0.330
 
 class Bassin {
@@ -48,3 +51,5 @@ int Bassin::distance(){
 
 	return 1;
 }
+
+#endif // GLOBAL_HPP
