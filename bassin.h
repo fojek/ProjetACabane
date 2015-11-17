@@ -1,3 +1,5 @@
+// Classe pour le traitement des I/O pour la lecture du niveau des bassins
+
 #define VITESSE_SON_mmus	0.330
 
 class Bassin {
