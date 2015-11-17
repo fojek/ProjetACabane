@@ -1,3 +1,5 @@
+// Fonctions pour embedder la librarie PythonKoyo en c++
+
 PyObject* koyoReadIn()
 {
 	PyObject *pName, *pModule, *pDict, *pFunc, *pFunc2, *pValue;
