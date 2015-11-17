@@ -52,4 +52,4 @@ int Bassin::distance(){
 	return 1;
 }
 
-#endif // GLOBAL_HPP
+#endif // BASSIN_H
