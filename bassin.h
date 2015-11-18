@@ -1,26 +1,19 @@
-// Classe pour le traitement des I/O pour la lecture du niveau des bassins
-
-#ifndef BASSIN_H
-#define BASSIN_H
-
 #define VITESSE_SON_mmus	0.330
 
 class Bassin {
-	static Bassin& Instance();
-	double distanceMax;
-
 public:
 	int address;
-	double niveau;
+    double niveau;
 	std::string uniteIng;
-	Bassin& operator = (const Bassin&) {}
-	Bassin (const Bassin&) {}
-	
-	static Bassin m_instance;
-	
-	Bassin(int a, double d, std::string u) : address(a), distanceMax(d), uniteIng(u) {}
+    int distance(void);
+    double distanceMax;
+    static Bassin& Instance();
+private:
+    Bassin& operator = (const Bassin&) {}
+    Bassin (const Bassin&) {}
+    static Bassin m_instance;
 
-	void distance(void);
+    Bassin(int a, double d, std::string u) : address(a), distanceMax(d), uniteIng(u) {}
 };
 
 int Bassin::distance(){
@@ -51,5 +44,3 @@ int Bassin::distance(){
 
 	return 1;
 }
-
-#endif // BASSIN_H

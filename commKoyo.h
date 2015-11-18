@@ -1,12 +1,6 @@
-// Fonctions pour embedder la librarie PythonKoyo en c++
-
-#ifndef commKoyo_H
-#define commKoyo_H
-
-
 PyObject* koyoReadIn()
 {
-	PyObject *pName, *pModule, *pDict, *pFunc, *pFunc2, *pValue;
+    PyObject *pName, *pModule, *pDict, *pFunc;
 	PyRun_SimpleString ("import sys; sys.path.insert(0, '/home/pi')");
 	pName = PyString_FromString("commKoyo");
 	pModule = PyImport_Import(pName);
@@ -19,7 +13,7 @@ PyObject* koyoReadIn()
 
 PyObject* koyoReadOut()
 {
-	PyObject *pName, *pModule, *pDict, *pFunc, *pFunc2, *pValue;
+    PyObject *pName, *pModule, *pDict, *pFunc;
 	PyRun_SimpleString ("import sys; sys.path.insert(0, '/home/pi')");
 	pName = PyString_FromString("commKoyo");
 	pModule = PyImport_Import(pName);
@@ -29,5 +23,3 @@ PyObject* koyoReadOut()
 
 	return pResult;
 }
-
-#endif // commKoyo_H

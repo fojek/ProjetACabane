@@ -11,18 +11,27 @@
 #include "commKoyo.h"
 #include "bassin.h"
 
+using namespace std;
+
 long int echoStart=0;
 long int echoEnd=0;
 long int echoDuration=0;
 int bassin2Level=0;
+
+Bassin Bassin::m_instance=Bassin(1, 100, "cm");
+
+Bassin& Bassin::Instance(){
+    return m_instance;
+}
 
 PI_THREAD (threadBassin)
 {
     Bassin & bassin2=Bassin::Instance();
     do
     {
-	bassin2->distance();
-        delay(10);
+        bassin2.distance();
+        printf("distance : %f\n", bassin2.niveau);
+        delay(500);
     } while(TRUE);
 }
 
@@ -33,7 +42,7 @@ PI_THREAD (commPLC)
     {
         PyObject *kinput = koyoReadIn();
         PyObject *koutput = koyoReadOut();
-        printf("Status : %i | %i\n", PyInt_AsLong(kinput),PyInt_AsLong(koutput));
+        printf("Status : %d | %d\n", PyInt_AsLong(kinput),PyInt_AsLong(koutput));
         delay(1000);
     } while(TRUE);
 }
@@ -46,8 +55,6 @@ int main(int argc, char *argv[])
     pinMode (0, OUTPUT) ;
     pinMode (TRIG, OUTPUT) ;
     pinMode (ECHO, INPUT) ;
-
-    Bassin & bassin1=Bassin::Instance();
 
     piThreadCreate(threadBassin);
     piThreadCreate(commPLC);
