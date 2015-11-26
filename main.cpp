@@ -8,6 +8,7 @@
 #include <assert.h>
 #include <python2.7/Python.h>
 #include <string.h>
+#include <iostream>
 #include "commKoyo.h"
 #include "bassin.h"
 
@@ -24,6 +25,12 @@ Bassin& Bassin::Instance(){
     return m_instance;
 }
 
+Koyo Koyo::m_instance=Koyo(10);
+
+Koyo& Koyo::Instance(){
+	return m_instance;
+}
+
 PI_THREAD (threadBassin)
 {
     Bassin & bassin2=Bassin::Instance();
@@ -37,13 +44,17 @@ PI_THREAD (threadBassin)
 
 PI_THREAD (commPLC)
 {
+    Koyo & koyo=Koyo::Instance();
     Py_Initialize();
     do
     {
-        PyObject *kinput = koyoReadIn();
-        PyObject *koutput = koyoReadOut();
-        printf("Status : %d | %d\n", PyInt_AsLong(kinput),PyInt_AsLong(koutput));
+        koyo.koyoReadIn();
+	koyo.koyoReadOut();
+
+	std::cout << "E/S : " << (*koyo.Inputs) << " | " << (*koyo.Outputs) << "\n"; 
+
         delay(1000);
+
     } while(TRUE);
 }
 

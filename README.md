@@ -21,6 +21,6 @@ Software :
 Hardware :
  - Raspberry Pi 2B
  - Koyo DL06
- - P3C (PCB dédié pour acquisition analog & modules ultrason)
+ - P3C (PCB pour acquisition analog & modules ultrason)
 
 // Special thanks to https://github.com/SimplyAutomationized for his koyo lib! 
