@@ -24,7 +24,7 @@ int Koyo::koyoReadIn()
 	std::bitset<24> *inputs;
 
 	PyObject *pName, *pModule, *pDict, *pFunc;
-	PyRun_SimpleString ("import sys; sys.path.insert(0, '/home/pi/ProjetCabane/ProjetCabane')");
+	PyRun_SimpleString ("import sys; sys.path.insert(0, '/home/ProjetCabane')");
 	pName = PyString_FromString("commKoyo");
 	pModule = PyImport_Import(pName);
 	pDict = PyModule_GetDict(pModule);
@@ -43,7 +43,7 @@ int Koyo::koyoReadOut()
 	std::bitset<18> *outputs;
 
 	PyObject *pName, *pModule, *pDict, *pFunc;
-	PyRun_SimpleString ("import sys; sys.path.insert(0, '/home/pi/ProjetCabane/ProjetCabane')");
+	PyRun_SimpleString ("import sys; sys.path.insert(0, '/home/ProjetCabane')");
 	pName = PyString_FromString("commKoyo");
 	pModule = PyImport_Import(pName);
 	pDict = PyModule_GetDict(pModule);

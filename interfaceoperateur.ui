@@ -285,7 +285,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../Cabane.jpg</pixmap>
+     <pixmap>img/Cabane.jpg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
