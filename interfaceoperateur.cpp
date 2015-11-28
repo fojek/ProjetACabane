@@ -14,6 +14,7 @@ InterfaceOperateur::InterfaceOperateur(QWidget *parent) :
     timerCount = 0;
 
     connect(refreshHMI, SIGNAL(timeout()), this, SLOT(timerTimeout()));
+    QApplication::setStyle(new QPlastiqueStyle);
 }
 
 InterfaceOperateur::~InterfaceOperateur()

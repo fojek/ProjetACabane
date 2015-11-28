@@ -7,8 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>422</height>
+    <height>600</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>InterfaceOperateur</string>
@@ -17,10 +29,10 @@
    <widget class="QProgressBar" name="Bassin2">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>210</y>
+      <x>590</x>
+      <y>330</y>
       <width>201</width>
-      <height>171</height>
+      <height>221</height>
      </rect>
     </property>
     <property name="font">
@@ -43,10 +55,10 @@
    <widget class="QProgressBar" name="Bassin1">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>210</y>
+      <x>380</x>
+      <y>330</y>
       <width>201</width>
-      <height>171</height>
+      <height>221</height>
      </rect>
     </property>
     <property name="font">
@@ -168,7 +180,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>120</y>
+      <y>130</y>
       <width>141</width>
       <height>101</height>
      </rect>
@@ -276,9 +288,9 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
+      <y>-20</y>
       <width>801</width>
-      <height>451</height>
+      <height>600</height>
      </rect>
     </property>
     <property name="text">
@@ -421,8 +433,8 @@ p, li { white-space: pre-wrap; }
    <widget class="QFrame" name="frame_5">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>310</y>
+      <x>170</x>
+      <y>140</y>
       <width>141</width>
       <height>71</height>
      </rect>
@@ -503,8 +515,8 @@ p, li { white-space: pre-wrap; }
    <widget class="QFrame" name="frame_6">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>230</y>
+      <x>170</x>
+      <y>20</y>
       <width>141</width>
       <height>71</height>
      </rect>
@@ -585,8 +597,8 @@ p, li { white-space: pre-wrap; }
    <widget class="QFrame" name="frame_7">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>10</y>
+      <x>10</x>
+      <y>370</y>
       <width>141</width>
       <height>101</height>
      </rect>
@@ -686,8 +698,8 @@ p, li { white-space: pre-wrap; }
    <widget class="QFrame" name="frame_8">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>120</y>
+      <x>10</x>
+      <y>250</y>
       <width>141</width>
       <height>101</height>
      </rect>
