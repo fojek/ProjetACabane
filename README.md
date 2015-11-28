@@ -7,6 +7,7 @@ Tâches :
 - [ ] Base de données 
 - [ ] Trends, à partir de la base de données
 - [ ] P3C, design & PCB
+- [x] Accès bitwise aux E/S du koyo
  
  
 
