@@ -1,25 +1,25 @@
 ## Commandes pour Git
-# Pour cloner (on ajoute --recursive pour downloader les sous-modules)
+### Pour cloner (on ajoute --recursive pour downloader les sous-modules)
 
-$ git clone https://github.com/nomdudepot --recursive
+	git clone https://github.com/nomdudepot --recursive
 
-# Mettre a jour
+### Mettre a jour
 
-$ git pull
+	git pull
 
-# Accepter les changements
+### Accepter les changements
 
-$ git add fichiersnonsuivis
-$ git commit -a
+	git add fichiersnonsuivis
+	git commit -a
 
-# Mettre a jour en ligne
+### Mettre a jour en ligne
 
-$ git push
+	git push
 
-# Sous-modules :
+### Sous-modules :
 
-$ git submodule add https://github.com/nomdudepot repertoire/
-$ git submodule init nomdudepot
+	git submodule add https://github.com/nomdudepot repertoire/
+	git submodule init nomdudepot
 
 ## A valider
  - [ ] Fonctionnement de branch

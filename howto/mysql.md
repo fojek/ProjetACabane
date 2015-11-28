@@ -1,27 +1,28 @@
-## Installer mysql (mdp "cabane")
+## Fonctions mySQL
+### Installer mysql (mdp "cabane")
 
 	sudo apt-get install mysql-server --fix-missing
 	sudo apt-get install mysql-client php5-mysql
 
-## Utiliser mysql
+### Utiliser mysql
 
-# Se connecter "root"
+#### Se connecter "root"
 	mysql -uroot -hlocalhost -p 
 
-# Nouvelle BDD
+#### Nouvelle BDD
 	CREATE DATABASE cabaneDB;
 
-# Creer un usager
+#### Creer un usager
 	CREATE USER 'cabaneUser'@'localhost' IDENTIFIED BY 'cabane';
 	GRANT ALL PRIVILEGES ON *.* TO 'cabaneUser'@'localhost';
 	FLUSH PRIVILEGES;
 
-# Se deconnecter : ctrl-c
+#### Se deconnecter : ctrl-c
 
-# Se connecter en utilisant un user
+#### Se connecter en utilisant un user
 	mysql -cUser -hlocalhost cabaneDB -p
 
-# Commandes diverses
+#### Commandes diverses
 	show databases;
 	show tables;
 	select * from xx;
