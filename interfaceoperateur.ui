@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>455</height>
+    <height>422</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -86,7 +86,7 @@
       <rect>
        <x>10</x>
        <y>30</y>
-       <width>128</width>
+       <width>121</width>
        <height>31</height>
       </rect>
      </property>
@@ -794,22 +794,6 @@ p, li { white-space: pre-wrap; }
    <zorder>frame_6</zorder>
    <zorder>frame_7</zorder>
    <zorder>frame_8</zorder>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuMenu">
-    <property name="title">
-     <string>Menu</string>
-    </property>
-   </widget>
-   <addaction name="menuMenu"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
