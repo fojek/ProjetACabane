@@ -20,7 +20,7 @@
 #### Se deconnecter : ctrl-c
 
 #### Se connecter en utilisant un user
-	mysql -cUser -hlocalhost cabaneDB -p
+	mysql -ucabane -hlocalhost cabaneDB -p
 
 #### Commandes diverses
 	show databases;
