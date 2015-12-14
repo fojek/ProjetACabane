@@ -45,11 +45,11 @@ PI_THREAD (threadBassin)
     do
     {
 		/* Recherche de la distance */
-        bassin2.distance();
-        printf("distance : %f\n", bassin2.niveau);
+		bassin2.distance();
+		printf("distance : %f\n", bassin2.niveau);
 		
 		/* La boucle s'effectue chaque 500 ms */
-        delay(500);
+		delay(500);
     } while(TRUE);
 }
 
@@ -57,50 +57,50 @@ PI_THREAD (threadBassin)
 PI_THREAD (commPLC)
 {
 	/* Retour de l'addresse du singleton */
-    Koyo & koyo=Koyo::Instance();
+	Koyo & koyo=Koyo::Instance();
 	
 	/* Initialisation du module pour l'encapsulation Python */
-    Py_Initialize();
+	Py_Initialize();
 	
 	/* Boucle principale Koyo */
-    do
-    {
+	do
+	{
 		/* À faire : écriture des sorties */
 		koyo.koyoWriteOut();
 		
 		/* Acquisitionde l'état des E/S */
-        koyo.koyoReadIn();
+		koyo.koyoReadIn();
 		koyo.koyoReadOut();
 
 		std::cout << "E/S : " << (*koyo.Inputs) << " | " << (*koyo.Outputs) << "\n"; 
 
 		/* La boucle s'effectue chaque 1000 ms */
-        delay(1000);
-    } while(TRUE);
+		delay(1000);
+	} while(TRUE);
 }
 
 /* Boucle principale */
 int main(int argc, char *argv[])
 {
-    /* Initialisation variables QT */
+	/* Initialisation variables QT */
 	QApplication a(argc, argv);
-    InterfaceOperateur w;
+	InterfaceOperateur w;
 	
 	/* Initialisation de wiringPi (entrées / sorties) */
-    wiringPiSetup () ;
+	wiringPiSetup () ;
 	
 	/* Assignation et initialisation des entrées sorties */
 	// Devra être adapté pour 2x ultrasons + 1x MCP3008
-    pinMode (0, OUTPUT) ;
-    pinMode (TRIG, OUTPUT) ;
-    pinMode (ECHO, INPUT) ;
+	pinMode (0, OUTPUT) ;
+	pinMode (TRIG, OUTPUT) ;
+	pinMode (ECHO, INPUT) ;
 
 	/* Démarrages des threads */
-    piThreadCreate(threadBassin);
-    piThreadCreate(commPLC);
+	piThreadCreate(threadBassin);
+	piThreadCreate(commPLC);
 
 	/* Démarrage du GUI */
-    w.show();
+	w.show();
 
-    return a.exec();
+	return a.exec();
 }
