@@ -1,3 +1,5 @@
+/* N'est plus requis */
+
 #ifndef GLOBAL_HPP
 #define GLOBAL_HPP
 
