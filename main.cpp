@@ -39,18 +39,18 @@ Koyo& Koyo::Instance(){
 PI_THREAD (threadBassin)
 {
 	/* Retour de l'addresse du singleton */
-    Bassin & bassin2=Bassin::Instance();
+	Bassin & bassin2=Bassin::Instance();
 	
 	/* Boucle principale bassins */
-    do
-    {
+	do
+	{
 		/* Recherche de la distance */
 		bassin2.distance();
 		printf("distance : %f\n", bassin2.niveau);
 		
 		/* La boucle s'effectue chaque 500 ms */
 		delay(500);
-    } while(TRUE);
+	} while(TRUE);
 }
 
 /* Thread de communication avec le Koyo */
