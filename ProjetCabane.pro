@@ -17,7 +17,6 @@ SOURCES += main.cpp\
 
 HEADERS  += interfaceoperateur.h \
     global.hpp \
-    commKoyo.h \
     bassin.h
 
 FORMS    += interfaceoperateur.ui

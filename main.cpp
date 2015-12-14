@@ -66,7 +66,7 @@ PI_THREAD (commPLC)
 	do
 	{
 		/* À faire : écriture des sorties */
-		koyo.koyoWriteOut();
+		// koyo.koyoWriteOut();
 		
 		/* Acquisitionde l'état des E/S */
 		koyo.koyoReadIn();
