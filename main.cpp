@@ -24,7 +24,7 @@ Bassin Bassin::m_instance=Bassin(1, 100, "cm");
 
 /* Fonction qui retourne l'addresse du singleton pour les bassins */
 Bassin& Bassin::Instance(){
-    return m_instance;
+	return m_instance;
 }
 
 /* Création du singleton pour le Koyo */
