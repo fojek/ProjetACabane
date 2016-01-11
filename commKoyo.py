@@ -3,8 +3,8 @@
 # Gestion de la communication avec Koyo, via libkoyo
 # ------------
 # 
-# À faire :
-# - Ajouter la fonction d'écriture des sorties
+# A faire :
+# - Ajouter la fonction d'ecriture des sorties
 #
 # ------------
 
@@ -19,11 +19,11 @@ def ReadOut():
 	myKoyo = plc.Koyo('192.168.0.110')
 	return int(myKoyo.ReadOutputs(),2);
 
-# Fonction de lecture des entrées
+# Fonction de lecture des entrees
 def ReadIn():
 
 	import Koyo as plc
 	myKoyo = plc.Koyo('192.168.0.110')
 	return int(myKoyo.ReadInputs(),2);
 
-# À faire, fonction d'écriture des sorties
+# A faire, fonction d'ecriture des sorties
