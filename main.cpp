@@ -35,6 +35,7 @@ Koyo& Koyo::Instance(){
 	return m_instance;
 }
 
+/**********************************************/
 /* Thread d'acquisition du niveau des bassins */
 PI_THREAD (threadBassin)
 {
@@ -53,6 +54,7 @@ PI_THREAD (threadBassin)
 	} while(TRUE);
 }
 
+/****************************************/
 /* Thread de communication avec le Koyo */
 PI_THREAD (commPLC)
 {
@@ -68,14 +70,14 @@ PI_THREAD (commPLC)
 		/* À faire : écriture des sorties */
 		// koyo.koyoWriteOut();
 		
-		/* Acquisitionde l'état des E/S */
-		koyo.koyoReadIn();
-		koyo.koyoReadOut();
+        /* Acquisitionde l'état des E/S */
+        koyo.koyoReadIn();
+        koyo.koyoReadOut();
 
-		std::cout << "E/S : " << (*koyo.Inputs) << " | " << (*koyo.Outputs) << "\n"; 
+        std::cout << "E/S : " << (*koyo.Inputs) << " | " << (*koyo.Outputs) << "\n";
 
 		/* La boucle s'effectue chaque 1000 ms */
-		delay(1000);
+        delay(100);
 	} while(TRUE);
 }
 

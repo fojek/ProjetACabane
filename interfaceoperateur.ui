@@ -796,6 +796,205 @@ p, li { white-space: pre-wrap; }
      </property>
     </widget>
    </widget>
+   <widget class="QLabel" name="testkoyo">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>270</y>
+      <width>191</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="out1">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>270</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+    border : 2px solid;
+    border-radius : 15px;
+    border-color : white;
+}
+
+#VRAI
+{
+    background: green;
+
+}
+
+#FAUX
+{
+    background: black;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="out2">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>310</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+    border : 2px solid;
+    border-radius : 15px;
+    border-color : white;
+}
+
+#VRAI
+{
+    background: green;
+
+}
+
+#FAUX
+{
+    background: black;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="out3">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>350</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+    border : 2px solid;
+    border-radius : 15px;
+    border-color : white;
+}
+
+#VRAI
+{
+    background: green;
+
+}
+
+#FAUX
+{
+    background: black;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="out4">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>390</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+    border : 2px solid;
+    border-radius : 15px;
+    border-color : white;
+}
+
+#VRAI
+{
+    background: green;
+
+}
+
+#FAUX
+{
+    background: black;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="out5">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>430</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+    border : 2px solid;
+    border-radius : 15px;
+    border-color : white;
+}
+
+#VRAI
+{
+    background: green;
+
+}
+
+#FAUX
+{
+    background: black;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="out6">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>470</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+    border : 2px solid;
+    border-radius : 15px;
+    border-color : white;
+}
+
+#VRAI
+{
+    background: green;
+
+}
+
+#FAUX
+{
+    background: black;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
    <zorder>label_7</zorder>
    <zorder>Bassin2</zorder>
    <zorder>Bassin1</zorder>
@@ -806,6 +1005,13 @@ p, li { white-space: pre-wrap; }
    <zorder>frame_6</zorder>
    <zorder>frame_7</zorder>
    <zorder>frame_8</zorder>
+   <zorder>testkoyo</zorder>
+   <zorder>out1</zorder>
+   <zorder>out2</zorder>
+   <zorder>out3</zorder>
+   <zorder>out4</zorder>
+   <zorder>out5</zorder>
+   <zorder>out6</zorder>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

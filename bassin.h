@@ -1,13 +1,13 @@
 /**********************
-/* bassin.h
-/* --------
-/* Classe pour le niveau des bassins 
-/* --------
-/* 
-/* À Faire :
-/*  - Doubler les variables, car il y a deux bassins
-/*  - Mettre les numéros de 'Pin' dans la création de l'instance
-/***********************/
+ * bassin.h
+ * --------
+ * Classe pour le niveau des bassins
+ * --------
+ *
+ * À Faire :
+ *  - Doubler les variables, car il y a deux bassins
+ *  - Mettre les numéros de 'Pin' dans la création de l'instance
+ ***********************/
 
 #ifndef BASSIN_H
 #define BASSIN_H

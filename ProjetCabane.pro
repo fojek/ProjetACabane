@@ -13,14 +13,19 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        interfaceoperateur.cpp
+        interfaceoperateur.cpp \
+    commKoyo.cpp
 
 HEADERS  += interfaceoperateur.h \
     global.hpp \
-    bassin.h
+    bassin.h \
+    commKoyo.h
 
 FORMS    += interfaceoperateur.ui
 
 LIBS	 += -lwiringPi \
          -lpython2.7
+
+OTHER_FILES += \
+    commKoyo.py
 
