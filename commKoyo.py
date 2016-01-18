@@ -19,9 +19,10 @@ def ReadOut():
 	myKoyo = plc.Koyo('192.168.0.110')
 	result = myKoyo.ReadOutputs()
 	if result != -1:
-		return int(myKoyo.ReadOutputs()[::-1],2);
+		return int(int(myKoyo.ReadOutputs()[::-1]),2);
 	else:
 		return -1;
+		print 'Python : ReadOut : Timeout ignore!'
 
 # Fonction de lecture des entrees
 def ReadIn():
@@ -29,9 +30,9 @@ def ReadIn():
 	import Koyo as plc
 	myKoyo = plc.Koyo('192.168.0.110')
 	if result != -1:
-		return int(myKoyo.ReadInputs()[::-1],2);
+		return int(int(myKoyo.ReadInputs()[::-1]),2);
 	else:
-		print 'Erreur ignoree!'
+		print 'Python : ReadIn : Timeout ignore!'
 		return -1;	
 		
 # [::-1] permet de retourner un string
