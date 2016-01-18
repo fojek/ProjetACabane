@@ -17,13 +17,23 @@ def ReadOut():
 
 	import Koyo as plc
 	myKoyo = plc.Koyo('192.168.0.110')
-	return int(myKoyo.ReadOutputs(),2);
+	result = myKoyo.ReadOutputs()
+	if result != -1:
+		return int(myKoyo.ReadOutputs()[::-1],2);
+	else:
+		return -1;
 
 # Fonction de lecture des entrees
 def ReadIn():
 
 	import Koyo as plc
 	myKoyo = plc.Koyo('192.168.0.110')
-	return int(myKoyo.ReadInputs(),2);
-
+	if result != -1:
+		return int(myKoyo.ReadInputs()[::-1],2);
+	else:
+		print 'Erreur ignoree!'
+		return -1;	
+		
+# [::-1] permet de retourner un string
+ 
 # A faire, fonction d'ecriture des sorties
