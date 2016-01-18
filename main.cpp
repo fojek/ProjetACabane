@@ -47,7 +47,7 @@ PI_THREAD (threadBassin)
 	{
 		/* Recherche de la distance */
 		bassin2.distance();
-		printf("distance : %f\n", bassin2.niveau);
+		printf("C++ : threadBassin : distance : %f\n", bassin2.niveau);
 		
 		/* La boucle s'effectue chaque 500 ms */
 		delay(500);
@@ -56,7 +56,7 @@ PI_THREAD (threadBassin)
 
 /****************************************/
 /* Thread de communication avec le Koyo */
-PI_THREAD (commPLC)
+PI_THREAD (threadKoyo)
 {
 	/* Retour de l'addresse du singleton */
 	Koyo & koyo=Koyo::Instance();
@@ -74,7 +74,7 @@ PI_THREAD (commPLC)
         koyo.koyoReadIn();
         koyo.koyoReadOut();
 
-        std::cout << "E/S : " << (*koyo.Inputs) << " | " << (*koyo.Outputs) << "\n";
+        std::cout << "C++ : threadKoyo : " << (*koyo.Inputs) << " | " << (*koyo.Outputs) << "\n";
 
 		/* La boucle s'effectue chaque 1000 ms */
         delay(100);
@@ -99,7 +99,7 @@ int main(int argc, char *argv[])
 
 	/* Démarrages des threads */
 	piThreadCreate(threadBassin);
-	piThreadCreate(commPLC);
+	piThreadCreate(threadKoyo);
 
 	/* Démarrage du GUI */
 	w.show();

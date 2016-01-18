@@ -63,7 +63,7 @@ int Koyo::koyoReadOut()
     
     /* Vérification de résultat valide : */
     if(PyInt_AsLong(pResult) == -1) {
-        printf("C++ : koyoReadOut : Timeout géré correctement.\n");
+        printf("C++ : koyoReadOut : Timeout gere correctement.\n");
         return 0;
     }
     /* Conversion du résultat PyObject en bitset 18 */

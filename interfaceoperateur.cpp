@@ -74,7 +74,6 @@ void InterfaceOperateur::timerTimeout()
 
         /* On verifie l'etat du flag (thread safe) et on attend 10 cycles que la variable soit initialisee par read ou write */
         /* Le stylesheet est applique sur chaque label (lumiere) */
-        /* Attention ! dans le bitset, les bits sont a l'envers MSB -> LSB */
         if (koyo_int.flag == 0 && joseph>10) {
             koyo_int.flag = 1;
 
@@ -125,16 +124,10 @@ void InterfaceOperateur::timerTimeout()
             else {
                 ui->out6->setStyleSheet("background: black; border : 2px solid; border-radius : 15px; border-color : white;");
             }
-
-            std::cout << "Interface : " << (*koyo_int.Outputs) << "\n";
-            for (i=0; i<17; ++i){
-                std::cout << (*koyo_int.Outputs).test(i) << "-";
-            }
-            std::cout << "\n";
             koyo_int.flag = 0;
         }
         else {
-            printf("Oops! Section critique : Petzi %i\n", joseph);
+            printf("C++ : Interface : Erreur code Petzi %i\n", joseph);
         }
     }
 }
