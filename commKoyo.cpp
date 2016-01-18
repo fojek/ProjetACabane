@@ -19,7 +19,13 @@ int Koyo::koyoReadIn()
 
     /* Exécution du script et récupération du résultat */
     PyObject *pResult = PyObject_CallObject(pFunc, NULL);
-
+    
+    /* Vérification de résultat valide : */
+    if(PyInt_AsLong(pResult) == -1) {
+        printf("C++ : koyoReadIn : Timeout géré correctement.\n");
+        return -1;
+    }
+    
     /* Conversion du résultat PyObject en bitset 24 */
     inputs = new std::bitset<24> (PyInt_AsLong(pResult));
 
@@ -54,9 +60,13 @@ int Koyo::koyoReadOut()
 
     /* Exécution du script et récupération du résultat */
     PyObject *pResult = PyObject_CallObject(pFunc, NULL);
-
+    
+    /* Vérification de résultat valide : */
+    if(PyInt_AsLong(pResult) == -1) {
+        printf("C++ : koyoReadOut : Timeout géré correctement.\n");
+        return -1;
+    }
     /* Conversion du résultat PyObject en bitset 18 */
-
     outputs = new std::bitset<18> (PyInt_AsLong(pResult));
 
     do {} while(flag != 0);
@@ -69,5 +79,5 @@ int Koyo::koyoReadOut()
     }
 
     /* Il faudrait gérer un résultat mauvais, ce n'est pas le cas pour le moment */
-    return 1;
+    return 0;
 }
