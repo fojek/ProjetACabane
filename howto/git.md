@@ -2,6 +2,7 @@
 ### Pour cloner (on ajoute --recursive pour downloader les sous-modules)
 
 	git clone https://github.com/nomdudepot --recursive
+	git clone https://github.com/nomdudepot --branch nomdelabranche --recursive
 
 ### Mettre a jour
 
