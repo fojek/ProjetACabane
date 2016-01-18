@@ -1,7 +1,12 @@
-### ProjetCabane
+### ProjetCabane v0.2
 
 Programme de contrôle de l'automatisation de l'érablière.
 
+Version 0.2 :
+ - Correction de l'ordre des bits
+ - Standardisation des logs
+ - meilleure gestion du timeout de koyo
+ 
 #### Description
 
 ##### Software :
