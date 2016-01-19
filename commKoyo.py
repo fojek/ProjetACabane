@@ -35,8 +35,9 @@ def ReadIn():
 	return int(result[::-1],2);
 
 # Fonction d'ecriture des sorties
-#def WriteOutput():
-#    import Koyo as plc
-#    myKoyo = plc.Koyo('192.168.0.110')
-#   result = 1 #myKoyo.WriteOutput(1, 1)
-#    return result;
+def WriteOutput(a,b):
+	print 'Python : WriteOutput : ', a, b
+	import Koyo as plc
+	myKoyo = plc.Koyo('192.168.0.110')
+	myKoyo.WriteOutput(a, b)
+    #return result;

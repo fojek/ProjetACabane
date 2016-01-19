@@ -76,7 +76,6 @@ int Koyo::koyoReadOut()
     if (flag == 0) {
         flag = 1;
         Outputs = outputs;
-        Outputs_buffer = outputs;
         flag = 0;
     }
 
@@ -93,16 +92,34 @@ int Koyo::koyoWriteOut()
     if (flag == 0) {
         flag = 1;
         int i;
+        
+		/* Variables requises pour l'encapsulation */
+		PyObject *pName, *pModule, *pDict, *pFunc, *pArg;
 
+		/* Préparation de l'exécution du script Python */
+		PyRun_SimpleString ("import sys; sys.path.insert(0, '/home/ProjetCabane')");
+		pName = PyString_FromString("commKoyo");
+		pModule = PyImport_Import(pName);
+		pDict = PyModule_GetDict(pModule);
+		pFunc = PyDict_GetItemString(pDict, "WriteOutput");
+		pArg = PyTuple_New(2);
+		
         /* On verifie si un input a change */
         for(i=0; i<17; i++) {
             if(Outputs->test(i) != Outputs_buffer->test(i)){
                 printf("Input %i doit etre mis a jour.\n", i);
+                
+                /* Exécution du script et récupération du résultat */
+                PyTuple_SetItem(pArg, 0, PyInt_FromLong(i));
+                PyTuple_SetItem(pArg, 1, PyInt_FromLong(Outputs_buffer->test(i)));
+                
+				PyObject *pResult = PyObject_CallObject(pFunc, pArg);
+				//Py_DECREF(pArg);
             }
         }
 
         /* Ceci copie l'etat actuel dans le buffer */
-        Outputs_buffer = Outputs;
+        //Outputs_buffer = Outputs;
         /*
         Outputs_buffer->none();
         for(i=0; i<17; i++) {

@@ -39,6 +39,8 @@ private:
 	static Koyo m_instance;
 	Koyo(int ip) : addresseIP(ip) {
 		Inputs = new std::bitset<24>;
+		Outputs = new std::bitset<18>;
+		Outputs_buffer = new std::bitset<18>;
 	}
 };
 
