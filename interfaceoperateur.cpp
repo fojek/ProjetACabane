@@ -77,7 +77,8 @@ void InterfaceOperateur::timerTimeout()
         if (koyo_int.flag == 0 && joseph>10) {
             koyo_int.flag = 1;
 
-            if((*koyo_int.Outputs).test(15))
+            /* Outputs */
+            if((*koyo_int.Outputs).test(0))
             {
                 ui->out1->setStyleSheet("background: green; border : 2px solid; border-radius : 15px; border-color : white;");
             }
@@ -85,7 +86,7 @@ void InterfaceOperateur::timerTimeout()
                 ui->out1->setStyleSheet("background: black; border : 2px solid; border-radius : 15px; border-color : white;");
             }
 
-            if((*koyo_int.Outputs).test(14))
+            if((*koyo_int.Outputs).test(1))
             {
                 ui->out2->setStyleSheet("background: green; border : 2px solid; border-radius : 15px; border-color : white;");
             }
@@ -93,7 +94,7 @@ void InterfaceOperateur::timerTimeout()
                 ui->out2->setStyleSheet("background: black; border : 2px solid; border-radius : 15px; border-color : white;");
             }
 
-            if((*koyo_int.Outputs).test(13))
+            if((*koyo_int.Outputs).test(2))
             {
                 ui->out3->setStyleSheet("background: green; border : 2px solid; border-radius : 15px; border-color : white;");
             }
@@ -101,7 +102,7 @@ void InterfaceOperateur::timerTimeout()
                 ui->out3->setStyleSheet("background: black; border : 2px solid; border-radius : 15px; border-color : white;");
             }
 
-            if((*koyo_int.Outputs).test(12))
+            if((*koyo_int.Outputs).test(3))
             {
                 ui->out4->setStyleSheet("background: green; border : 2px solid; border-radius : 15px; border-color : white;");
             }
@@ -109,7 +110,7 @@ void InterfaceOperateur::timerTimeout()
                 ui->out4->setStyleSheet("background: black; border : 2px solid; border-radius : 15px; border-color : white;");
             }
 
-            if((*koyo_int.Outputs).test(11))
+            if((*koyo_int.Outputs).test(4))
             {
                 ui->out5->setStyleSheet("background: green; border : 2px solid; border-radius : 15px; border-color : white;");
             }
@@ -117,13 +118,63 @@ void InterfaceOperateur::timerTimeout()
                 ui->out5->setStyleSheet("background: black; border : 2px solid; border-radius : 15px; border-color : white;");
             }
 
-            if((*koyo_int.Outputs).test(10))
+            if((*koyo_int.Outputs).test(5))
             {
                 ui->out6->setStyleSheet("background: green; border : 2px solid; border-radius : 15px; border-color : white;");
             }
             else {
                 ui->out6->setStyleSheet("background: black; border : 2px solid; border-radius : 15px; border-color : white;");
             }
+
+            /* Inputs */
+            if((*koyo_int.Inputs).test(0))
+            {
+                ui->in1->setStyleSheet("background: green; border : 2px solid; border-radius : 15px; border-color : white;");
+            }
+            else {
+                ui->in1->setStyleSheet("background: black; border : 2px solid; border-radius : 15px; border-color : white;");
+            }
+
+            if((*koyo_int.Inputs).test(1))
+            {
+                ui->in2->setStyleSheet("background: green; border : 2px solid; border-radius : 15px; border-color : white;");
+            }
+            else {
+                ui->in2->setStyleSheet("background: black; border : 2px solid; border-radius : 15px; border-color : white;");
+            }
+
+            if((*koyo_int.Inputs).test(2))
+            {
+                ui->in3->setStyleSheet("background: green; border : 2px solid; border-radius : 15px; border-color : white;");
+            }
+            else {
+                ui->in3->setStyleSheet("background: black; border : 2px solid; border-radius : 15px; border-color : white;");
+            }
+
+            if((*koyo_int.Inputs).test(3))
+            {
+                ui->in4->setStyleSheet("background: green; border : 2px solid; border-radius : 15px; border-color : white;");
+            }
+            else {
+                ui->in4->setStyleSheet("background: black; border : 2px solid; border-radius : 15px; border-color : white;");
+            }
+
+            if((*koyo_int.Inputs).test(4))
+            {
+                ui->in5->setStyleSheet("background: green; border : 2px solid; border-radius : 15px; border-color : white;");
+            }
+            else {
+                ui->in5->setStyleSheet("background: black; border : 2px solid; border-radius : 15px; border-color : white;");
+            }
+
+            if((*koyo_int.Inputs).test(5))
+            {
+                ui->in6->setStyleSheet("background: green; border : 2px solid; border-radius : 15px; border-color : white;");
+            }
+            else {
+                ui->in6->setStyleSheet("background: black; border : 2px solid; border-radius : 15px; border-color : white;");
+            }
+
             koyo_int.flag = 0;
         }
         else {
@@ -134,3 +185,20 @@ void InterfaceOperateur::timerTimeout()
 
 //ui->testkoyo->setText("Etat : " + QString::number((*koyo_int.Outputs));
 //std::cout << "E/S : " << (*koyo.Inputs) << " | " << (*koyo.Outputs) << "\n";
+
+void InterfaceOperateur::on_outsw_1_valueChanged(int value)
+{
+    if(ui->outsw_1->value()) { (*koyo_int.Outputs_buffer).set(0); }
+    else { (*koyo_int.Outputs_buffer).reset(0); }
+
+    std::cout << "######### C++ : Interface : " << (*koyo_int.Outputs) << " | " << (*koyo_int.Outputs_buffer) << "\n";
+}
+
+void InterfaceOperateur::on_outsw_2_valueChanged(int value)
+{
+
+    if(ui->outsw_2->value()) { (*koyo_int.Outputs_buffer).set(1); }
+    else { (*koyo_int.Outputs_buffer).reset(1); }
+
+    std::cout << "######### C++ : Interface : " << (*koyo_int.Outputs) << " | " << (*koyo_int.Outputs_buffer) << "\n";
+}

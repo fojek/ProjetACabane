@@ -32,6 +32,10 @@ private slots:
 
     void timerTimeout();
 
+    void on_outsw_1_valueChanged(int value);
+
+    void on_outsw_2_valueChanged(int value);
+
 private:
     Ui::InterfaceOperateur *ui;
     QTimer *refreshHMI;

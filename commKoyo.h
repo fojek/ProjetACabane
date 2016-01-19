@@ -24,7 +24,7 @@ public:
 	std::bitset<24> *Inputs; 
 	/* 16 sorties, octal : 0-7, 10-17. 8,9 n'existent pas */
 	std::bitset<18> *Outputs;
-
+    std::bitset<18> *Outputs_buffer;
     /* Pour empecher de lire une variable utilisee dans un autre thread */
     int flag = 0;
 

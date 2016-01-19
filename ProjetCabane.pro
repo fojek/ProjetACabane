@@ -27,5 +27,7 @@ LIBS	 += -lwiringPi \
          -lpython2.7
 
 OTHER_FILES += \
-    commKoyo.py
+    commKoyo.py \
+    lib/Koyo/Koyo.py \
+    lib/Koyo/README.md
 

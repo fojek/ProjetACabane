@@ -1,5 +1,6 @@
 #include "commKoyo.h"
 #include <python2.7/Python.h>
+#include <iostream>
 
 /* Lecture des entrées */
 int Koyo::koyoReadIn()
@@ -75,9 +76,44 @@ int Koyo::koyoReadOut()
     if (flag == 0) {
         flag = 1;
         Outputs = outputs;
+        Outputs_buffer = outputs;
         flag = 0;
     }
 
     /* Il faudrait gérer un résultat mauvais, ce n'est pas le cas pour le moment */
     return 1;
 }
+
+/* Ecriture des sorties */
+int Koyo::koyoWriteOut()
+{
+    do {} while(flag != 0);
+
+    /* Copie vers le singleton */
+    if (flag == 0) {
+        flag = 1;
+        int i;
+
+        /* On verifie si un input a change */
+        for(i=0; i<17; i++) {
+            if(Outputs->test(i) != Outputs_buffer->test(i)){
+                printf("Input %i doit etre mis a jour.\n", i);
+            }
+        }
+
+        /* Ceci copie l'etat actuel dans le buffer */
+        Outputs_buffer = Outputs;
+        /*
+        Outputs_buffer->none();
+        for(i=0; i<17; i++) {
+            if(Outputs->test(i)){
+                Outputs_buffer->set(i);
+            }
+        }*/
+        flag = 0;
+    }
+
+    /* Il faudrait gérer un résultat mauvais, ce n'est pas le cas pour le moment */
+    return 1;
+}
+

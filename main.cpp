@@ -50,7 +50,7 @@ PI_THREAD (threadBassin)
 		printf("C++ : threadBassin : distance : %f\n", bassin2.niveau);
 		
 		/* La boucle s'effectue chaque 500 ms */
-		delay(500);
+        delay(2000);
 	} while(TRUE);
 }
 
@@ -68,16 +68,16 @@ PI_THREAD (threadKoyo)
 	do
 	{
 		/* À faire : écriture des sorties */
-		// koyo.koyoWriteOut();
+
 		
         /* Acquisitionde l'état des E/S */
         koyo.koyoReadIn();
         koyo.koyoReadOut();
-
+        koyo.koyoWriteOut();
         std::cout << "C++ : threadKoyo : " << (*koyo.Inputs) << " | " << (*koyo.Outputs) << "\n";
 
-		/* La boucle s'effectue chaque 1000 ms */
-        delay(100);
+        /* La boucle s'effectue chaque 250 ms */
+        delay(250);
 	} while(TRUE);
 }
 
