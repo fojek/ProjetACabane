@@ -1,3 +1,6 @@
 [submodule "lib/Koyo"]
 	path = lib/Koyo
 	url = https://github.com/fojek/PythonKoyo
+[submodule "lib/QCustomPlot"]
+	path = lib/QCustomPlot
+	url = https://github.com/fojek/QCustomPlot
