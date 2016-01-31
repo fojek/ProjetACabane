@@ -794,6 +794,34 @@ p, li { white-space: pre-wrap; }
       </widget>
      </widget>
     </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Graphiques</string>
+     </attribute>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>480</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Rafraichir</string>
+      </property>
+     </widget>
+     <widget class="QCustomPlot" name="qcp" native="true">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>761</width>
+        <height>461</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="Debug_tab">
      <attribute name="title">
       <string>Debug</string>
@@ -1575,11 +1603,6 @@ p, li { white-space: pre-wrap; }
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab">
-     <attribute name="title">
-      <string>...</string>
-     </attribute>
-    </widget>
    </widget>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -1593,6 +1616,14 @@ p, li { white-space: pre-wrap; }
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>/lib/QCustomPlot/qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

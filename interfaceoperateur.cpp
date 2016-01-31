@@ -5,10 +5,18 @@
 #include <QTime>
 #include "commKoyo.h"
 #include <iostream>
+#include <mysql/mysql.h>
+#include <iomanip>
+#include <fstream>
 
 int joseph = 0;
 int i;
 
+/* Connection SQL */
+MYSQL *connection, mysql;
+MYSQL_RES *res;
+MYSQL_ROW row;
+int query_state,a;
 
 /* On retrouve l'addresse du singleton Koyo */
 Koyo & koyo_int=Koyo::Instance();
@@ -30,6 +38,27 @@ InterfaceOperateur::InterfaceOperateur(QWidget *parent) :
 	/* On force le style graphique du GUI */
     QApplication::setStyle(new QPlastiqueStyle);
     refreshHMI->start();
+
+    /* Initialisation des graphiques */
+    ui->qcp->addGraph();
+    ui->qcp->addGraph();
+
+    ui->qcp->xAxis->setLabel("Temps");
+    ui->qcp->yAxis->setLabel("Temperature");
+    ui->qcp->graph(0)->setPen(QPen(Qt::blue));
+    ui->qcp->graph(0)->setName("Temperature");
+
+    ui->qcp->graph(1)->setPen(QPen(Qt::red));
+    ui->qcp->graph(1)->setName("Pression");
+
+    ui->qcp->legend->setVisible(true);
+    ui->qcp->legend->setFont(QFont("Helvetica",9));
+
+    /* Connection a la BDD */
+    mysql_init(&mysql);
+    connection = mysql_real_connect(&mysql,"localhost","root","cabane", "cabaneDB",0,0,0);
+    if(connection==NULL) std::cout << mysql_error(&mysql) << std::endl;
+
 }
 
 /* Destructeur */
@@ -67,6 +96,44 @@ void InterfaceOperateur::timerTimeout()
     --timerCount;
     if (timerCount <= 0)
     {
+        /* Tab Graphiques */
+
+        query_state=mysql_query(connection, "select temperature from temperature order by temps desc limit 100");
+
+        if(query_state!=0){
+          std::cout<<mysql_error(connection)<<std::endl<<std::endl;
+        }
+
+        res=mysql_store_result(connection);
+
+        QVector<double> x(101), y(101);
+        for (int i=100; i>0; --i)
+        {
+          x[i] = i;
+          if ((row=mysql_fetch_row(res)) != NULL){
+              y[i] = atof(row[0]);
+          }
+          else {
+              y[i]=0;
+          }
+        }
+
+        QVector<double> x2(101), y2(101);
+        for (int i=0; i<101; ++i)
+        {
+          x2[i] = i;
+          y2[i] = cos(x[i]*50) * 20;
+        }
+
+        ui->qcp->graph(0)->setData(x, y);
+        ui->qcp->graph(1)->setData(x2, y2);
+
+        ui->qcp->rescaleAxes();
+
+        ui->qcp->replot();
+
+        /***** STATUS ****/
+
         ++ joseph;
         refreshHMI->stop();
         refreshHMI->start();
@@ -201,4 +268,9 @@ void InterfaceOperateur::on_outsw_2_valueChanged(int value)
     else { (*koyo_int.Outputs_buffer).reset(1); }
 
     std::cout << "######### C++ : Interface : " << (*koyo_int.Outputs) << " | " << (*koyo_int.Outputs_buffer) << "\n";
+}
+
+void InterfaceOperateur::on_pushButton_3_clicked()
+{
+
 }

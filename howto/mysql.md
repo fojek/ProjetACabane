@@ -30,6 +30,7 @@
 	describe db;   #montre l'architecture de la db ou table
 	select Host,User,Password from user;
 	create table temperature (temperature DOUBLE);
+	create table temperature (temperature DOUBLE, temps TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
 	insert into temperature (temperature) values(10.05),(10),(9.95),(-2.45);
 
 ## Pour accéder à partir de c++

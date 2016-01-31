@@ -14,17 +14,22 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         interfaceoperateur.cpp \
-    commKoyo.cpp
+        commKoyo.cpp \
+        lib/QCustomPlot/qcustomplot.cpp
 
-HEADERS  += interfaceoperateur.h \
-    global.hpp \
-    bassin.h \
-    commKoyo.h
+HEADERS += interfaceoperateur.h \
+        global.hpp \
+        bassin.h \
+        commKoyo.h \
+        lib/QCustomPlot/qcustomplot.h
 
-FORMS    += interfaceoperateur.ui
+FORMS   += interfaceoperateur.ui
 
-LIBS	 += -lwiringPi \
-         -lpython2.7
+LIBS	+= -lwiringPi \
+        -lpython2.7 \
+        -L/usr/lib/mysql -lmysqlclient
+
+INCLUDEPATH += $$QT_PROJECT_DIR/lib/QCustomPlot/
 
 OTHER_FILES += \
     commKoyo.py \

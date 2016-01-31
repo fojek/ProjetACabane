@@ -8,6 +8,7 @@
 #include <QtGui>
 
 #include <wiringPi.h>
+#include "lib/QCustomPlot/qcustomplot.h"
 
 namespace Ui {
 class InterfaceOperateur;
@@ -35,6 +36,8 @@ private slots:
     void on_outsw_1_valueChanged(int value);
 
     void on_outsw_2_valueChanged(int value);
+
+    void on_pushButton_3_clicked();
 
 private:
     Ui::InterfaceOperateur *ui;
