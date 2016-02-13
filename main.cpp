@@ -3,10 +3,7 @@
 #include <QApplication>
 #include <stdio.h>
 #include <stdint.h>
-#include <wiringPi.h>
-#include <gertboard.h>
 #include <assert.h>
-#include <python2.7/Python.h>
 #include <string.h>
 #include <iostream>
 #include "commKoyo.h"
@@ -35,71 +32,13 @@ Koyo& Koyo::Instance(){
 	return m_instance;
 }
 
-/**********************************************/
-/* Thread d'acquisition du niveau des bassins */
-PI_THREAD (threadBassin)
-{
-	/* Retour de l'addresse du singleton */
-	Bassin & bassin2=Bassin::Instance();
-	
-	/* Boucle principale bassins */
-	do
-	{
-		/* Recherche de la distance */
-		bassin2.distance();
-		printf("C++ : threadBassin : distance : %f\n", bassin2.niveau);
-		
-		/* La boucle s'effectue chaque 500 ms */
-        delay(2000);
-	} while(TRUE);
-}
-
-/****************************************/
-/* Thread de communication avec le Koyo */
-PI_THREAD (threadKoyo)
-{
-	/* Retour de l'addresse du singleton */
-	Koyo & koyo=Koyo::Instance();
-	
-	/* Initialisation du module pour l'encapsulation Python */
-	Py_Initialize();
-	
-	/* Boucle principale Koyo */
-	do
-	{
-		/* À faire : écriture des sorties */
-
-		
-        /* Acquisitionde l'état des E/S */
-        koyo.koyoReadIn();
-        koyo.koyoReadOut();
-        koyo.koyoWriteOut();
-        std::cout << "C++ : threadKoyo : " << (*koyo.Inputs) << " | " << (*koyo.Outputs) << "\n";
-
-        /* La boucle s'effectue chaque 250 ms */
-        delay(250);
-	} while(TRUE);
-}
-
 /* Boucle principale */
 int main(int argc, char *argv[])
 {
 	/* Initialisation variables QT */
+    QApplication::addLibraryPath("pluginsFolder");
 	QApplication a(argc, argv);
 	InterfaceOperateur w;
-	
-	/* Initialisation de wiringPi (entrées / sorties) */
-	wiringPiSetup () ;
-	
-	/* Assignation et initialisation des entrées sorties */
-	// Devra être adapté pour 2x ultrasons + 1x MCP3008
-	pinMode (0, OUTPUT) ;
-	pinMode (TRIG, OUTPUT) ;
-	pinMode (ECHO, INPUT) ;
-
-	/* Démarrages des threads */
-	piThreadCreate(threadBassin);
-	piThreadCreate(threadKoyo);
 
 	/* Démarrage du GUI */
 	w.show();

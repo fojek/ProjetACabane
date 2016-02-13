@@ -35,40 +35,6 @@ private:
 /* Acquisition de la distance devant le transceiver ultrason */
 int Bassin::distance(){
 
-	/* Requis pour le calcul de la distance */
-	int i, echoStart, echoEnd;
-
-	/* Envoi du trig : ON pendant 200ms, puis OFF */
-	digitalWrite(TRIG, 1);
-	delay(200);
-	digitalWrite(TRIG, 0);
-	
-	/* On attend le départ de l'impulsion d'écho*/
-	i = millis(); 
-	do {
-		/* Retourne -1 si on manque l'impulsion, pour éviter une boucle sans fin */
-		if ((millis() - i) > 200) return 0;
-	} while (digitalRead(ECHO) == FALSE);
-    
-	/* Précisément, ceci est le départ de l'impulsion d'écho */
-	echoStart = micros();
-
-	/* On attend la fin de l'impulsion d'écho */
-	i = millis(); 
-	do {
-		/* Retourne -1 si on manque l'impulsion, pour éviter une boucle sans fin */
-		if ((millis() - i) > 200) return -1;
-	} while (digitalRead(ECHO) == TRUE);
-
-	/* Précisément, ceci est la fin de l'impulsion d'écho */
-	echoEnd = micros();
-
-	/* Calcul de la distance en pourcentage P/R au fond du bassin */
-	niveau = ((echoEnd-echoStart)*VITESSE_SON_mmus)/distanceMax;
-
-	/* Oops : */
-	if(niveau>100) { niveau = 100; }
-
 	return 1;
 }
 

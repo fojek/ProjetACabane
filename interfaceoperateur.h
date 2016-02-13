@@ -6,9 +6,18 @@
 
 #include <QMainWindow>
 #include <QtGui>
+#include "lib\QCustomPlot\qcustomplot.h"
+#include <QtCore>
+#include <QtSQL>
 
-#include <wiringPi.h>
-#include "lib/QCustomPlot/qcustomplot.h"
+typedef struct {
+    double temp;
+    double press;
+    double bassin1;
+    double bassin2;
+} SQLRES;
+
+Q_DECLARE_METATYPE(SQLRES);
 
 namespace Ui {
 class InterfaceOperateur;
@@ -17,32 +26,72 @@ class InterfaceOperateur;
 class InterfaceOperateur : public QMainWindow
 {
     Q_OBJECT
+    QThread workerThread;
 
 public:
     explicit InterfaceOperateur(QWidget *parent = 0);
     ~InterfaceOperateur();
 
+public slots:
+    void handleResults(SQLRES sqlres);
+
 private slots:
-    void on_pushButton_6_clicked();
-
-    void on_pushButton_5_clicked();
-
-    void on_pushButton_10_clicked();
-
-    void on_pushButton_9_clicked();
 
     void timerTimeout();
+
+    void timerSQLTimeout();
 
     void on_outsw_1_valueChanged(int value);
 
     void on_outsw_2_valueChanged(int value);
 
-    void on_pushButton_3_clicked();
+    void on_boutonConnexion_clicked();
+
+    void on_marcheVidange1_clicked();
+
+    void on_arretVidange1_clicked();
+
+    void on_marcheVidange2_clicked();
+
+    void on_arretVidange2_clicked();
+
+    void on_startPompe1_pressed();
+
+    void on_startPompe1_released();
+
+    void on_arretPompe1_pressed();
+
+    void on_arretPompe1_released();
+
+    void on_marchePompe1_pressed();
+
+    void on_marchePompe1_released();
+
+    void on_arretPompe2_pressed();
+
+    void on_arretPompe2_released();
 
 private:
     Ui::InterfaceOperateur *ui;
     QTimer *refreshHMI;
+    QTimer *timerSQL;
     int timerCount;
+    int timerSQLcount;
+signals:
+    void operate(const QString &);
+};
+
+
+class Worker : public QObject
+{
+    Q_OBJECT
+    QThread workerThread;
+
+public slots:
+    void doWork();
+
+signals:
+    void resultReady(const SQLRES &sqlres);
 };
 
 #endif // INTERFACEOPERATEUR_H
