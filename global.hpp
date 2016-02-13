@@ -3,9 +3,7 @@
 #ifndef GLOBAL_HPP
 #define GLOBAL_HPP
 
-extern long int echoStart;
-extern long int echoEnd;
-extern long int echoDuration;
-extern int bassin2Level;
+/* Variables locales, si requis */
+extern int dude;
 
 #endif // GLOBAL_HPP
