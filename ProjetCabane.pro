@@ -4,9 +4,9 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 TARGET = ProjetCabane
 TEMPLATE = app
@@ -20,19 +20,12 @@ SOURCES += main.cpp\
 HEADERS += interfaceoperateur.h \
         global.hpp \
         bassin.h \
-        commKoyo.h \
-        lib/QCustomPlot/qcustomplot.h
+        lib/QCustomPlot/qcustomplot.h \
+        commKoyo.h
 
 FORMS   += interfaceoperateur.ui
 
-LIBS	+= -lwiringPi \
-        -lpython2.7 \
-        -L/usr/lib/mysql -lmysqlclient
+LIBS	+= C:\MySQL\lib\libmysql.lib
 
-INCLUDEPATH += $$QT_PROJECT_DIR/lib/QCustomPlot/
-
-OTHER_FILES += \
-    commKoyo.py \
-    lib/Koyo/Koyo.py \
-    lib/Koyo/README.md
-
+INCLUDEPATH += $$QT_PROJECT_DIR/lib/QCustomPlot/ \
+               C:\MySQL\include
